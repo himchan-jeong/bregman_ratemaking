@@ -2,7 +2,7 @@
 setwd("C:/Users/HimChan/Desktop/Research/Bregman_ratemaking") # your working directory
 library(MASS)
 train1 <- read.csv("train.csv")
-train <- train1[,c(2:3,5,10:15,22:26)]
+train <- train1[,c(2:3,5,10:15,22:26)] # Only IM claim is used
 rm(train1)
 head(train)
 
