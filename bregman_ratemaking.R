@@ -282,11 +282,11 @@ train <- train[  with(train, order(Repeat, PolicyNum,Year)),  ]
 Repeatt <- train$Repeat
 train$Repeat <- NULL
 table(Repeatt)
-N1 <- as.numeric(table(Repeatt)[1])
-N2 <- as.numeric(table(Repeatt)[2])
-N3 <- as.numeric(table(Repeatt)[3])
-N4 <- as.numeric(table(Repeatt)[4])
-N5 <- as.numeric(table(Repeatt)[5])
+N1 <- as.numeric(table(Repeatt)[1]) # number of policyholders with 1 frequency observation
+N2 <- as.numeric(table(Repeatt)[2]) # number of policyholders with 2 frequency observations
+N3 <- as.numeric(table(Repeatt)[3]) # number of policyholders with 3 frequency observations
+N4 <- as.numeric(table(Repeatt)[4]) # number of policyholders with 4 frequency observations
+N5 <- as.numeric(table(Repeatt)[5]) # number of policyholders with 5 frequency observations
 N <- N1 + N2 + N3 + N4 + N5
 
 xnn <- cbind(rep(1,nrow(xn)),xn)
@@ -604,11 +604,11 @@ trainp <- trainp[  with(trainp, order(Repeat, PolicyNum,Year)),  ]
 Repeat <- trainp$Repeat
 trainp$Repeat <- NULL
 
-M1 <- as.numeric(table(Repeat)[1])
-M2 <- as.numeric(table(Repeat)[2])
-M3 <- as.numeric(table(Repeat)[3])
-M4 <- as.numeric(table(Repeat)[4])
-M5 <- as.numeric(table(Repeat)[5])
+M1 <- as.numeric(table(Repeat)[1]) # number of policyholders with 1 severity observation
+M2 <- as.numeric(table(Repeat)[2]) # number of policyholders with 2 severity observations
+M3 <- as.numeric(table(Repeat)[3]) # number of policyholders with 3 severity observations
+M4 <- as.numeric(table(Repeat)[4]) # number of policyholders with 4 severity observations
+M5 <- as.numeric(table(Repeat)[5]) # number of policyholders with 5 severity observations
 M <- M1 + M2 + M3 + M4 + M5
 
 x <- trainp[-c(1,2,3,6,13)]
