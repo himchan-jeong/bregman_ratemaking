@@ -159,7 +159,7 @@ colnames(Cpost)[1] <- "PolicyNum"
 Cpost$n <- NULL
 Cpost$sv <- NULL
 
-# for each 
+# attach the bonus-malus factor for each policyholder on the test set
 Ptest <- merge(x = test, y = Npost, by = "PolicyNum", all.x = TRUE)
 Ptest$nweight[is.na(Ptest$nweight)] <- 1
 
@@ -172,7 +172,7 @@ xt <- cbind(rep(1,nrow(xt)),xt)
 n_npred <- exp(as.matrix(xt) %*% glmalpha) # frequency premium with the naive model
 n_ppred <- exp(as.matrix(xt) %*% as.matrix(NBm$coef[1:9]))*Ptest$nweight # frequency premium with the proposed model
 
-c_npred <- exp(as.matrix(xt) %*% glmbeta[1:ncol(xt)] + n_npred*glmbeta[10]) # frequency premium with the naive model
+c_npred <- exp(as.matrix(xt) %*% glmbeta[1:ncol(xt)] + n_npred*glmbeta[10]) # severity premium with the naive model
 c_ppred <- exp(as.matrix(xt) %*% GPm$coef[1:ncol(xt)] # severity premium with the proposed model
                + n_ppred*GPm$coef[10])*Ptest$cweight
 
