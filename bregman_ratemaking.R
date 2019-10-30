@@ -219,48 +219,50 @@ fN <- function(n,nu,theta) {
 
 # According to Lemma 1 in the paper, one needs the following ratios of marginal densities
 
-rNm_q1 <- function(z1,nu1,theta) {                           # ratio of marginal frequency density with q prior to marginal frequency density with naive prior (1 observation during 5 years)  
+# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (1 observation during 5 years)  
+rNm_q1 <- function(z1,nu1,theta) {                           
   mean(fN(z1,nu1,theta))/fN(z1,nu1,1)                        
 }
-
-rNm_q2 <- function(z1,nu1,theta,z2,nu2) {                    # ratio of marginal frequency density with q prior to marginal frequency density with naive prior (2 observations during 5 years)  
+# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (2 observations during 5 years)  
+rNm_q2 <- function(z1,nu1,theta,z2,nu2) {                    
   mean(fN(z1,nu1,theta)*fN(z2,nu2,theta))/fN(z1,nu1,1)*fN(z2,nu2,1)
 }
-
-rNm_q3 <- function(z1,nu1,theta,z2,nu2,z3,nu3) {             # ratio of marginal frequency density with q prior to marginal frequency density with naive prior (3 observations during 5 years)  
+# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (3 observations during 5 years)  
+rNm_q3 <- function(z1,nu1,theta,z2,nu2,z3,nu3) {             
   mean(fN(z1,nu1,theta)*fN(z2,nu2,theta)*fN(z3,nu3,theta)
   )/fN(z1,nu1,1)*fN(z2,nu2,1)*fN(z3,nu3,1)
 }
-
-rNm_q4 <- function(z1,nu1,theta,z2,nu2,z3,nu3,z4,nu4) {      # ratio of marginal frequency density with q prior to marginal frequency density with naive prior (4 observations during 5 years)  
+# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (4 observations during 5 years)  
+rNm_q4 <- function(z1,nu1,theta,z2,nu2,z3,nu3,z4,nu4) {      
   mean(fN(z1,nu1,theta)*fN(z2,nu2,theta)*fN(z3,nu3,theta)*fN(z4,nu4,theta)
   )/fN(z1,nu1,1)*fN(z2,nu2,1)*fN(z3,nu3,1)*fN(z4,nu4,1)
 }
-
-rNm_q5 <- function(z1,nu1,theta,z2,nu2,z3,nu3,z4,nu4,z5,nu5){# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (5 observations during 5 years)  
+# ratio of marginal frequency density with q prior to marginal frequency density with naive prior (5 observations during 5 years)  
+rNm_q5 <- function(z1,nu1,theta,z2,nu2,z3,nu3,z4,nu4,z5,nu5){
   mean(fN(z1,nu1,theta)*fN(z2,nu2,theta)*fN(z3,nu3,theta)*fN(z4,nu4,theta)*fN(z5,nu5,theta)
   )/fN(z1,nu1,1)*fN(z2,nu2,1)*fN(z3,nu3,1)*fN(z4,nu4,1)*fN(z5,nu5,1)
 }
 
-rCm_q1 <- function(z1,mu1,theta,psi1) {                      # ratio of marginal severity density with q prior to marginal severity density with naive prior (1 observation during 5 years)  
+# ratio of marginal severity density with q prior to marginal severity density with naive prior (1 observation during 5 years)  
+rCm_q1 <- function(z1,mu1,theta,psi1) {                      
   mean(fC(z1,mu1,theta,psi1))/fC(z1,mu1,1,psi1)
 }
-
-rCm_q2 <- function(z1,mu1,theta,psi1,z2,mu2,psi2) {          # ratio of marginal severity density with q prior to marginal severity density with naive prior (2 observations during 5 years)  
+# ratio of marginal severity density with q prior to marginal severity density with naive prior (2 observations during 5 years)  
+rCm_q2 <- function(z1,mu1,theta,psi1,z2,mu2,psi2) {          
   mean(fC(z1,mu1,theta,psi1)*fC(z2,mu2,theta,psi2))/fC(z1,mu1,1,psi1)*fC(z2,mu2,1,psi2)
 }
-
-rCm_q3 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3) { # ratio of marginal severity density with q prior to marginal severity density with naive prior (3 observations during 5 years)  
+# ratio of marginal severity density with q prior to marginal severity density with naive prior (3 observations during 5 years)  
+rCm_q3 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3) { 
   mean(fC(z1,mu1,theta,psi1)*fC(z2,mu2,theta,psi2)*fC(z3,mu3,theta,psi3)
     )/fC(z1,mu1,1,psi1)*fC(z2,mu2,1,psi2)*fC(z3,mu3,1,psi3)
 }
-
-rCm_q4 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3,z4,mu4,psi4) { # ratio of marginal severity density with q prior to marginal severity density with naive prior (4 observations during 5 years)  
+# ratio of marginal severity density with q prior to marginal severity density with naive prior (4 observations during 5 years)  
+rCm_q4 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3,z4,mu4,psi4) { 
   mean(fC(z1,mu1,theta,psi1)*fC(z2,mu2,theta,psi2)*fC(z3,mu3,theta,psi3)*fC(z4,mu4,theta,psi4)
   )/fC(z1,mu1,1,psi1)*fC(z2,mu2,1,psi2)*fC(z3,mu3,1,psi3)*fC(z4,mu4,1,psi4)
 }
-
-rCm_q5 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3,z4,mu4,psi4,z5,mu5,psi5) { # ratio of marginal severity density with q prior to marginal severity density with naive prior (5 observations during 5 years)  
+# ratio of marginal severity density with q prior to marginal severity density with naive prior (5 observations during 5 years)  
+rCm_q5 <- function(z1,mu1,theta,psi1,z2,mu2,psi2,z3,mu3,psi3,z4,mu4,psi4,z5,mu5,psi5) { 
   mean(fC(z1,mu1,theta,psi1)*fC(z2,mu2,theta,psi2)*fC(z3,mu3,theta,psi3)*fC(z4,mu4,theta,psi4)*fC(z5,mu5,theta,psi5)
   )/fC(z1,mu1,1,psi1)*fC(z2,mu2,1,psi2)*fC(z3,mu3,1,psi3)*fC(z4,mu4,1,psi4)*fC(z5,mu5,1,psi5)
 }
@@ -384,8 +386,10 @@ for (j in 1:N5/5) { # Contribution to the sensitivity for every perturbation lev
   }
 }
 
-Npmsens1 <- Npmsens11+Npmsens12+Npmsens13+Npmsens14+Npmsens15 # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-gpsens1  <- gpsens11+gpsens12+gpsens13+gpsens14+gpsens15      # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level 
+# Sum of contributions to the sensitivity of naive prior from all observations for every perturbation level
+Npmsens1 <- Npmsens11+Npmsens12+Npmsens13+Npmsens14+Npmsens15 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level 
+gpsens1  <- gpsens11+gpsens12+gpsens13+gpsens14+gpsens15      
 plot(e,Npmsens1,type='l',col="blue")
 lines(e,gpsens1)
 
@@ -417,8 +421,8 @@ for (j in 1:N2/2) { # Contribution to the sensitivity for every perturbation lev
   j1 <- N1+2*j-1
   j2 <- N1+2*j
   
-  Npmsens22  <- Npmsens22 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / (1-e+e*rNm_q2
-                                                             (n[j1],nu[j1],theta2,n[j2],nu[j2])) ) /N
+  Npmsens22  <- Npmsens22 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / 
+                                       (1-e+e*rNm_q2(n[j1],nu[j1],theta2,n[j2],nu[j2])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2],scale=1/(r+nu[j1]+nu[j2]))
   for (i in 1:99) {
     err <- e[i]
@@ -434,8 +438,8 @@ for (j in 1:N3/3) { # Contribution to the sensitivity for every perturbation lev
   j1 <- N1+N2+3*j-2
   j2 <- N1+N2+3*j-1
   j3 <- N1+N2+3*j
-  Npmsens23  <- Npmsens23 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / (1-e+e*rNm_q3
-                                                             (n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3])) ) /N
+  Npmsens23  <- Npmsens23 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / 
+                                       (1-e+e*rNm_q3(n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3],scale=1/(r+nu[j1]+nu[j2]+nu[j3]))
   for (i in 1:99) {
     err <- e[i]
@@ -452,8 +456,8 @@ for (j in 1:N4/4) { # Contribution to the sensitivity for every perturbation lev
   j2 <- N1+N2+N3+4*j-2
   j3 <- N1+N2+N3+4*j-1
   j4 <- N1+N2+N3+4*j
-  Npmsens24  <- Npmsens24 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / (1-e+e*rNm_q4
-                                                             (n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4])) ) /N
+  Npmsens24  <- Npmsens24 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / 
+                                     (1-e+e*rNm_q4(n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3]+n[j4],
                     scale=1/(r+nu[j1]+nu[j2]+nu[j3]+nu[j4]))
   for (i in 1:99) {
@@ -472,8 +476,8 @@ for (j in 1:N5/5) { # Contribution to the sensitivity for every perturbation lev
   j3 <- N1+N2+N3+N4+5*j-2
   j4 <- N1+N2+N3+N4+5*j-1
   j5 <- N1+N2+N3+N4+5*j
-  Npmsens25  <- Npmsens25 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / (1-e+e*rNm_q5
-                                                             (n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4],n[j5],nu[j5])) ) /N
+  Npmsens25  <- Npmsens25 + psi1ftn( (1-e)+e*qn2(1)/pms(1) / 
+                                       (1-e+e*rNm_q5(n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4],n[j5],nu[j5])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3]+n[j4]+n[j5],
                     scale=1/(r+nu[j1]+nu[j2]+nu[j3]+nu[j4]+nu[j5]))
   for (i in 1:99) {
@@ -483,9 +487,10 @@ for (j in 1:N5/5) { # Contribution to the sensitivity for every perturbation lev
     gpsens25[i] <- gpsens25[i] + mean(psi1ftn(gpdelta2))/N 
   }
 }
-
-Npmsens2 <- Npmsens21+Npmsens22+Npmsens23+Npmsens24+Npmsens25 # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-gpsens2  <- gpsens21+gpsens22+gpsens23+gpsens24+gpsens25      # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+# Sum of contributions to the sensitivity of naive prior from all observations for every perturbation level
+Npmsens2 <- Npmsens21+Npmsens22+Npmsens23+Npmsens24+Npmsens25 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+gpsens2  <- gpsens21+gpsens22+gpsens23+gpsens24+gpsens25      
 plot(e,Npmsens2,type='l',col="blue")
 lines(e,gpsens2)
 
@@ -516,8 +521,8 @@ for (j in 1:N2/2) { # Contribution to the sensitivity for every perturbation lev
   j1 <- N1+2*j-1
   j2 <- N1+2*j
   
-  Npmsens32  <- Npmsens32 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / (1-e+e*rNm_q2
-                                                             (n[j1],nu[j1],theta3,n[j2],nu[j2])) ) /N
+  Npmsens32  <- Npmsens32 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / 
+                                       (1-e+e*rNm_q2(n[j1],nu[j1],theta3,n[j2],nu[j2])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2],scale=1/(r+nu[j1]+nu[j2]))
   for (i in 1:99) { 
     err <- e[i]
@@ -533,8 +538,8 @@ for (j in 1:N3/3) { # Contribution to the sensitivity for every perturbation lev
   j1 <- N1+N2+3*j-2
   j2 <- N1+N2+3*j-1
   j3 <- N1+N2+3*j
-  Npmsens33  <- Npmsens33 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / (1-e+e*rNm_q3
-                                                             (n[j1],nu[j1],theta3,n[j2],nu[j2],n[j3],nu[j3])) ) /N
+  Npmsens33  <- Npmsens33 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / 
+                                       (1-e+e*rNm_q3(n[j1],nu[j1],theta3,n[j2],nu[j2],n[j3],nu[j3])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3],scale=1/(r+nu[j1]+nu[j2]+nu[j3]))
   for (i in 1:99) {
     err <- e[i]
@@ -551,8 +556,8 @@ for (j in 1:N4/4) { # Contribution to the sensitivity for every perturbation lev
   j2 <- N1+N2+N3+4*j-2
   j3 <- N1+N2+N3+4*j-1
   j4 <- N1+N2+N3+4*j
-  Npmsens34  <- Npmsens34 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / (1-e+e*rNm_q4
-                                                             (n[j1],nu[j1],theta3,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4])) ) /N
+  Npmsens34  <- Npmsens34 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / 
+                                       (1-e+e*rNm_q4(n[j1],nu[j1],theta3,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3]+n[j4],
                     scale=1/(r+nu[j1]+nu[j2]+nu[j3]+nu[j4]))
   for (i in 1:99) {
@@ -571,8 +576,8 @@ for (j in 1:N5/5) { # Contribution to the sensitivity for every perturbation lev
   j3 <- N1+N2+N3+N4+5*j-2
   j4 <- N1+N2+N3+N4+5*j-1
   j5 <- N1+N2+N3+N4+5*j
-  Npmsens35  <- Npmsens35 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / (1-e+e*rNm_q5
-                                                              (n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4],n[j5],nu[j5])) ) /N
+  Npmsens35  <- Npmsens35 + psi1ftn( (1-e)+e*qn3(1)/pms(1) / 
+                                       (1-e+e*rNm_q5(n[j1],nu[j1],theta2,n[j2],nu[j2],n[j3],nu[j3],n[j4],nu[j4],n[j5],nu[j5])) ) /N
   thetap  <- rgamma(1000,shape=r+n[j1]+n[j2]+n[j3]+n[j4]+n[j5],
                     scale=1/(r+nu[j1]+nu[j2]+nu[j3]+nu[j4]+nu[j5]))
   for (i in 1:99) {
@@ -583,8 +588,10 @@ for (j in 1:N5/5) { # Contribution to the sensitivity for every perturbation lev
   }
 }
 
-Npmsens3 <- Npmsens31+Npmsens32+Npmsens33+Npmsens34+Npmsens35 # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-gpsens3  <- gpsens31+gpsens32+gpsens33+gpsens34+gpsens35      # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+# Sum of contributions to the sensitivity of naive prior from all observations for every perturbation level
+Npmsens3 <- Npmsens31+Npmsens32+Npmsens33+Npmsens34+Npmsens35 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+gpsens3  <- gpsens31+gpsens32+gpsens33+gpsens34+gpsens35      
 plot(e,Npmsens3,type='l',col="blue")
 lines(e,gpsens3)
 
@@ -731,8 +738,10 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
 }
 
 w <- length(unique(trainp$PolicyNum))/length(unique(train$PolicyNum)) 
-Cpmsens1 <- (1-w)*Cpmsens10 + (Cpmsens11+Cpmsens12+Cpmsens13+Cpmsens14+Cpmsens15)*w # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-igpsens1 <- (1-w)*igpsens10 + (igpsens11+igpsens12+igpsens13+igpsens14+igpsens15)*w # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+# Sum of contributions to the sensitivity of naive prior from all observations for every perturbation level
+Cpmsens1 <- (1-w)*Cpmsens10 + (Cpmsens11+Cpmsens12+Cpmsens13+Cpmsens14+Cpmsens15)*w 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+igpsens1 <- (1-w)*igpsens10 + (igpsens11+igpsens12+igpsens13+igpsens14+igpsens15)*w 
 plot(e,Cpmsens1,type='l',col="blue")
 lines(e,igpsens1)
 
@@ -780,8 +789,8 @@ for (j in 1:M2/2) { # Contribution to the sensitivity for every perturbation lev
   j1 <- M1+2*j-1
   j2 <- M1+2*j
   
-  Cpmsens22  <- Cpmsens22 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / (1-e+e*rCm_q2
-                                                             (c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2])) ) /M
+  Cpmsens22  <- Cpmsens22 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / 
+                                       (1-e+e*rCm_q2(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2],k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2])
   for (i in 1:99) {
     err <- e[i]
@@ -797,8 +806,8 @@ for (j in 1:M3/3) { # Contribution to the sensitivity for every perturbation lev
   j1 <- M1+M2+3*j-2
   j2 <- M1+M2+3*j-1
   j3 <- M1+M2+3*j
-  Cpmsens23  <- Cpmsens23 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / (1-e+e*rCm_q3
-                                                             (c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3])) ) /M
+  Cpmsens23  <- Cpmsens23 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / 
+                                       (1-e+e*rCm_q3(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3])
   for (i in 1:99) {
@@ -816,8 +825,8 @@ for (j in 1:M4/4) { # Contribution to the sensitivity for every perturbation lev
   j2 <- M1+M2+M3+4*j-2
   j3 <- M1+M2+M3+4*j-1
   j4 <- M1+M2+M3+4*j
-  Cpmsens24  <- Cpmsens24 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / (1-e+e*rCm_q4
-                                                             (c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4])) ) /M
+  Cpmsens24  <- Cpmsens24 + psi1ftn( (1-e)+e*qc2(1)/pms(1) /
+                        (1-e+e*rCm_q4(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4])
   for (i in 1:99) {
@@ -836,8 +845,8 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
   j3 <- M1+M2+M3+M4+5*j-2
   j4 <- M1+M2+M3+M4+5*j-1
   j5 <- M1+M2+M3+M4+5*j
-  Cpmsens25  <- Cpmsens25 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / (1-e+e*rCm_q5
-                                                             (c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
+  Cpmsens25  <- Cpmsens25 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / 
+                (1-e+e*rCm_q5(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]+psi[j5]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4]+psi[j5]*c[j5]/mu[j5])
   for (i in 1:99) {
@@ -849,8 +858,10 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
 }
 
 w <- length(unique(trainp$PolicyNum))/length(unique(train$PolicyNum))
-Cpmsens2 <- (1-w)*Cpmsens20 + (Cpmsens21+Cpmsens22+Cpmsens23+Cpmsens24+Cpmsens25)*w # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-igpsens2 <- (1-w)*igpsens20 + (igpsens21+igpsens22+igpsens23+igpsens24+igpsens25)*w # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level 
+# Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
+Cpmsens2 <- (1-w)*Cpmsens20 + (Cpmsens21+Cpmsens22+Cpmsens23+Cpmsens24+Cpmsens25)*w 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level 
+igpsens2 <- (1-w)*igpsens20 + (igpsens21+igpsens22+igpsens23+igpsens24+igpsens25)*w 
 
 plot(e,Cpmsens2,type='l',col="blue")
 lines(e,igpsens2)
@@ -898,8 +909,8 @@ for (j in 1:M2/2) { # Contribution to the sensitivity for every perturbation lev
   j1 <- M1+2*j-1
   j2 <- M1+2*j
   
-  Cpmsens32  <- Cpmsens32 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / (1-e+e*rCm_q2
-                                                             (c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2])) ) /M
+  Cpmsens32  <- Cpmsens32 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / 
+                                       (1-e+e*rCm_q2(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2],k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2])
   for (i in 1:99) {
     err <- e[i]
@@ -914,8 +925,8 @@ for (j in 1:M3/3) { # Contribution to the sensitivity for every perturbation lev
   j1 <- M1+M2+3*j-2
   j2 <- M1+M2+3*j-1
   j3 <- M1+M2+3*j
-  Cpmsens33  <- Cpmsens33 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / (1-e+e*rCm_q3
-                                                             (c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3])) ) /M
+  Cpmsens33  <- Cpmsens33 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / 
+                                       (1-e+e*rCm_q3(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3])
   for (i in 1:99) {
@@ -933,8 +944,8 @@ for (j in 1:M4/4) { # Contribution to the sensitivity for every perturbation lev
   j2 <- M1+M2+M3+4*j-2
   j3 <- M1+M2+M3+4*j-1
   j4 <- M1+M2+M3+4*j
-  Cpmsens34  <- Cpmsens34 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / (1-e+e*rCm_q4
-                                                             (c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4])) ) /M
+  Cpmsens34  <- Cpmsens34 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / 
+                      (1-e+e*rCm_q4(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4])
   for (i in 1:99) {
@@ -953,8 +964,8 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
   j3 <- M1+M2+M3+M4+5*j-2
   j4 <- M1+M2+M3+M4+5*j-1
   j5 <- M1+M2+M3+M4+5*j
-  Cpmsens35  <- Cpmsens35 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / (1-e+e*rCm_q5
-                                                             (c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
+  Cpmsens35  <- Cpmsens35 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / 
+                (1-e+e*rCm_q5(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]+psi[j5]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4]+psi[j5]*c[j5]/mu[j5])
   for (i in 1:99) {
@@ -966,8 +977,10 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
 }
 
 w <- length(unique(trainp$PolicyNum))/length(unique(train$PolicyNum))
-Cpmsens3 <- (1-w)*Cpmsens30 + (Cpmsens31+Cpmsens32+Cpmsens33+Cpmsens34+Cpmsens35)*w # Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
-igpsens3 <- (1-w)*igpsens30 + (igpsens31+igpsens32+igpsens33+igpsens34+igpsens35)*w # Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+# Sum of contributions to the sensitivity of naive    prior from all observations for every perturbation level
+Cpmsens3 <- (1-w)*Cpmsens30 + (Cpmsens31+Cpmsens32+Cpmsens33+Cpmsens34+Cpmsens35)*w 
+# Sum of contributions to the sensitivity of proposed prior from all observations for every perturbation level
+igpsens3 <- (1-w)*igpsens30 + (igpsens31+igpsens32+igpsens33+igpsens34+igpsens35)*w 
 plot(e,Cpmsens3,type='l',col="blue")
 lines(e,igpsens3)
 
