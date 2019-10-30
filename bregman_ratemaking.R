@@ -1,16 +1,18 @@
 #### Load data files and creating training and test sets ####
-setwd("C:/Users/HimChan/Desktop/Research/Bregman_ratemaking") # your working directory
 library(MASS)
-train1 <- read.csv("train.csv")
-train <- train1[,c(2:3,5,10:15,22:26)] # Only IM claim is used
-rm(train1)
+
+# load rawdata from URL
+load(url("https://sites.google.com/a/wisc.edu/jed-frees/home/documents/data.RData"))
+load(url("https://sites.google.com/a/wisc.edu/jed-frees/home/documents/dataout.RData"))
+
+train <- data[,c(1:2,4,9:14,21:25)] # Only IM claim is used
+rm(data)
 head(train)
 
 trainp <- subset(train,log(yAvgIM)>0)
 
-test1 <- read.csv("test.csv")
-test <- test1[,c(2:3,5,10:15,22:26)]
-rm(test1)
+test <- dataout[,c(1:2,4,9:14,21:25)]
+rm(dataout)
 head(test)
 
 #### Estimation of alpha via marginal frequency likelihood ####
