@@ -28,7 +28,8 @@ NBEst <- function(x,n,id,init.alpha, r) { # optimization of proposed marginal li
     colnames(data)[3] <- "n";
     
     temp1 = sum(n*reg_eqn-log(gamma(n+1)))+length(unique(id))*(r*log(r)-log(gamma(r)));
-    temp2 = -sum((as.matrix(aggregate(n~id,data,sum))[,2]+r)*log(as.matrix(aggregate(sv~id,data,sum))[,2]+r))+sum(log(gamma(as.matrix(aggregate(n~id,data,sum))[,2]+r)));
+    temp2 = -sum((as.matrix(aggregate(n~id,data,sum))[,2]+r)*log(as.matrix(aggregate(sv~id,data,sum))[,2]+r)
+                 )+sum(log(gamma(as.matrix(aggregate(n~id,data,sum))[,2]+r)));
     result = -temp1-temp2
     return(result)
   } 
@@ -846,7 +847,7 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
   j4 <- M1+M2+M3+M4+5*j-1
   j5 <- M1+M2+M3+M4+5*j
   Cpmsens25  <- Cpmsens25 + psi1ftn( (1-e)+e*qc2(1)/pms(1) / 
-                (1-e+e*rCm_q5(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
+    (1-e+e*rCm_q5(c[j1],mu[j1],theta2,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])))/M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]+psi[j5]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4]+psi[j5]*c[j5]/mu[j5])
   for (i in 1:99) {
@@ -965,7 +966,7 @@ for (j in 1:M5/5) { # Contribution to the sensitivity for every perturbation lev
   j4 <- M1+M2+M3+M4+5*j-1
   j5 <- M1+M2+M3+M4+5*j
   Cpmsens35  <- Cpmsens35 + psi1ftn( (1-e)+e*qc3(1)/pms(1) / 
-                (1-e+e*rCm_q5(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])) ) /M
+      (1-e+e*rCm_q5(c[j1],mu[j1],theta3,psi[j1],c[j2],mu[j2],psi[j2],c[j3],mu[j3],psi[j3],c[j4],mu[j4],psi[j4],c[j5],mu[j5],psi[j5])))/M
   thetap  <- 1/rgamma(1000,k+1+psi[j1]+psi[j2]+psi[j3]+psi[j4]+psi[j5]
                       ,k+psi[j1]*c[j1]/mu[j1]+psi[j2]*c[j2]/mu[j2]+psi[j3]*c[j3]/mu[j3]+psi[j4]*c[j4]/mu[j4]+psi[j5]*c[j5]/mu[j5])
   for (i in 1:99) {
